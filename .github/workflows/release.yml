@@ -85,7 +85,7 @@ jobs:
     needs: [validate-repository,look-for-changes]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
       - name: Draft release with validation
         id: draft-release
         env:
@@ -141,7 +141,7 @@ jobs:
     needs: [validate-repository]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           token: ${{ secrets.BOT_GITHUB_TOKEN }}
           fetch-depth: 0
@@ -303,10 +303,10 @@ jobs:
       # Clear up space for specific large projects
       - name: Clear Up Space (Aggressively) for Specific Projects
         if: contains(fromJson('["core-mcp-server"]'), matrix.changed-directory)
-        uses: awslabs/mcp/.github/actions/clear-space-ubuntu-latest-agressively@bb62109f04532df81644eb76173ad4f987ab6033
+        uses: awslabs/mcp/.github/actions/clear-space-ubuntu-latest-agressively@0c55fd4e79509e19617d3b503f8d639d59ed408e
       #TODO: remove local action checkout when working...
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           token: ${{ secrets.BOT_GITHUB_TOKEN }}
           sparse-checkout: |
@@ -417,7 +417,7 @@ jobs:
     needs: [validate-repository, draft_release_when_tagged, publish-pypi, publish-npmjs]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
       - name: Publish release
         id: create-release
         env:

@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # dependabot should continue to update this to the latest hash.
-FROM public.ecr.aws/docker/library/python:3.13-alpine@sha256:070342a0cc1011532c0e69972cce2bbc6cc633eba294bae1d12abea8bd05303b AS uv
+FROM public.ecr.aws/docker/library/python:3.14-alpine@sha256:7af51ebeb83610fb69d633d5c61a2efb87efa4caf66b59862d624bb6ef788345 AS uv
 
 # Install the project into `/app`
 WORKDIR /app
@@ -68,7 +68,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # Make the directory just in case it doesn't exist
 RUN mkdir -p /root/.local
 
-FROM public.ecr.aws/docker/library/python:3.13-alpine@sha256:070342a0cc1011532c0e69972cce2bbc6cc633eba294bae1d12abea8bd05303b
+FROM public.ecr.aws/docker/library/python:3.14-alpine@sha256:7af51ebeb83610fb69d633d5c61a2efb87efa4caf66b59862d624bb6ef788345
 
 # Place executables in the environment at the front of the path and include other binaries
 ENV PATH="/app/.venv/bin:$PATH" \
